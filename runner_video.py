@@ -5,11 +5,11 @@ from random import randint, choice
 class Player(pygame.sprite.Sprite):
 	def __init__(self):
 		super().__init__()
-		player_walk_1 = pygame.image.load('graphics/player/player_walk_1.png').convert_alpha()
-		player_walk_2 = pygame.image.load('graphics/player/player_walk_2.png').convert_alpha()
+		player_walk_1 = pygame.image.load('graphics/player/walk.png').convert_alpha()
+		player_walk_2 = pygame.image.load('graphics/player/walk.png').convert_alpha()
 		self.player_walk = [player_walk_1,player_walk_2]
 		self.player_index = 0
-		self.player_jump = pygame.image.load('graphics/player/jump.png').convert_alpha()
+		self.player_jump = pygame.image.load('graphics/player/Hump.png').convert_alpha()
 
 		self.image = self.player_walk[self.player_index]
 		self.rect = self.image.get_rect(midbottom = (80,300))
@@ -136,7 +136,7 @@ player.add(Player())
 
 obstacle_group = pygame.sprite.Group()
 
-sky_surface = pygame.image.load('graphics/Sky.png').convert()
+sky_surface = pygame.image.load('graphics/skay3.jpg cx                                                                                 ').convert()
 ground_surface = pygame.image.load('graphics/ground.png').convert()
 
 # score_surf = test_font.render('My game', False, (64,64,64))
@@ -150,7 +150,7 @@ snail_frame_index = 0
 snail_surf = snail_frames[snail_frame_index]
 
 # Fly
-fly_frame1 = pygame.image.load('graphics/fly/fly1.png').convert_alpha()
+fly_frame1 = pygame.image.load('graphics/fly/Fly1.png').convert_alpha()
 fly_frame2 = pygame.image.load('graphics/fly/fly2.png').convert_alpha()
 fly_frames = [fly_frame1, fly_frame2]
 fly_frame_index = 0
@@ -159,18 +159,18 @@ fly_surf = fly_frames[fly_frame_index]
 obstacle_rect_list = []
 
 
-player_walk_1 = pygame.image.load('graphics/player/player_walk_1.png').convert_alpha()
-player_walk_2 = pygame.image.load('graphics/player/player_walk_2.png').convert_alpha()
+player_walk_1 = pygame.image.load('graphics/player/walk.png').convert_alpha()
+player_walk_2 = pygame.image.load('graphics/player/walk.png').convert_alpha()
 player_walk = [player_walk_1,player_walk_2]
 player_index = 0
-player_jump = pygame.image.load('graphics/player/jump.png').convert_alpha()
+player_jump = pygame.image.load('graphics/player/Hump.png').convert_alpha()
 
 player_surf = player_walk[player_index]
 player_rect = player_surf.get_rect(midbottom = (80,300))
 player_gravity = 0
 
 # Intro screen
-player_stand = pygame.image.load('graphics/player/player_stand.png').convert_alpha()
+player_stand = pygame.image.load('graphics/player/stand.png').convert_alpha()
 player_stand = pygame.transform.rotozoom(player_stand,0,2)
 player_stand_rect = player_stand.get_rect(center = (400,200))
 
@@ -185,7 +185,7 @@ obstacle_timer = pygame.USEREVENT + 1
 pygame.time.set_timer(obstacle_timer,1500)
 
 snail_animation_timer = pygame.USEREVENT + 2
-pygame.time.set_timer(snail_animation_timer,500)
+pygame.time.set_timer(snail_animation_timer,200)
 
 fly_animation_timer = pygame.USEREVENT + 3
 pygame.time.set_timer(fly_animation_timer,200)
@@ -208,7 +208,7 @@ while True:
 			if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
 				game_active = True
 				
-				start_time = int(pygame.time.get_ticks() / 1000)
+				start_time = int(pygame.time.get_ticks() / 1000) #speedchange
 
 		if game_active:
 			if event.type == obstacle_timer:
@@ -275,4 +275,4 @@ while True:
 		else: screen.blit(score_message,score_message_rect)
 
 	pygame.display.update()
-	clock.tick(60)
+	clock.tick(60) #frames change
