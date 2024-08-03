@@ -127,9 +127,9 @@ game_name_rect = game_name.get_rect(center=(400, 80))
 game_message = test_font.render('Press space to run', False, (255, 255, 255))
 game_message_rect = game_message.get_rect(center=(400, 330))
 
-# Timer 
+# Timer
 obstacle_timer = pygame.USEREVENT + 1
-pygame.time.set_timer(obstacle_timer, 1500)
+pygame.time.set_timer(obstacle_timer, 1000)
 
 while True:
     for event in pygame.event.get():
@@ -173,4 +173,4 @@ while True:
             screen.blit(score_message, score_message_rect)
 
     pygame.display.update()
-    clock.tick(60)  # farmeschange it also chnage speed
+    clock.tick(60) #frames change
